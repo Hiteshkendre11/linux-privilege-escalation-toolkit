@@ -1,0 +1,609 @@
+======================================================================
+LINUX PRIVILEGE ESCALATION SECURITY AUDIT REPORT
+======================================================================
+Report Generated: 2026-09-02 03:54:44
+Assessment Type: Automated Security Audit
+Mode: Detection Only
+
+======================================================================
+SYSTEM INFORMATION
+======================================================================
+Operating System: Linux
+Distribution: Linux-7.1.5+kali-amd64-x86_64-with-glibc2.42
+Kernel: 7.1.5+kali-amd64
+Architecture: x86_64
+Current User: kali
+
+======================================================================
+EXECUTIVE SUMMARY
+======================================================================
+Total Findings: 50
+HIGH Risk Findings: 1
+MEDIUM Risk Findings: 2
+LOW Risk Findings: 47
+Risk Score: 54
+Overall Status: HIGH RISK FINDING DETECTED
+
+======================================================================
+DETAILED FINDINGS
+======================================================================
+
+FINDING #1
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: HIGH
+Path: /home/kali/cybersecurity-projects/project-1/lab/find
+Permissions: -rwsrwxrwx
+Finding: Privileged file is world-writable Related checks also identified: World-Writable File, Writable Privileged File.
+Recommendation: Remove unnecessary world-write permission from the privileged file and review its SUID/SGID configuration.
+Related Checks: SUID, World-Writable File, Writable Privileged File
+
+FINDING #2
+----------------------------------------------------------------------
+Scanner: Sudo Scanner
+Type: Broad Sudo Permission
+Severity: MEDIUM
+Path: (ALL : ALL) ALL
+Rule: (ALL : ALL) ALL
+Finding: User has broad sudo privileges requiring authentication.
+Recommendation: Apply the principle of least privilege and restrict sudo access to only required commands.
+
+FINDING #3
+----------------------------------------------------------------------
+Scanner: Service Scanner
+Type: Group-Writable Root Service File
+Severity: MEDIUM
+Service: grub-install-devices.service
+Path: /etc/systemd/system/grub-install-devices.service
+Permissions: -rw-rw-r--
+Finding: A root-level systemd service file is group-writable.
+Recommendation: Review group ownership and restrict unnecessary write permissions.
+
+FINDING #4
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_ubertooth_one
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #5
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/umount
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #6
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/newgrp
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #7
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/sudo
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #8
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_ti_cc_2531
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #9
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_hak5_wifi_coconut
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #10
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/chsh
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #11
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/vmware-user-suid-wrapper
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #12
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_linux_wifi
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #13
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/chfn
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #14
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_nrf_mousejack
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #15
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/fusermount3
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #16
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/pkexec
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #17
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_nrf_51822
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #18
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/su
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #19
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/rsh-redone-rsh
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #20
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_rz_killerbee
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #21
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/gpasswd
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #22
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_ti_cc_2540
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #23
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_nxp_kw41z
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #24
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/rsh-redone-rlogin
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #25
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/passwd
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #26
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_linux_bluetooth
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #27
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/mount
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #28
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/ntfs-3g
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #29
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/bin/kismet_cap_nrf_52840
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #30
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #31
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/lib/openssh/ssh-keysign
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #32
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/lib/xorg/Xorg.wrap
+Permissions: -rwsr-sr-x
+Finding: No obvious high-risk condition detected Related checks also identified: SGID.
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+Related Checks: SUID, SGID
+
+FINDING #33
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/lib/chromium/chrome-sandbox
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #34
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/sbin/pppd
+Permissions: -rwsr-xr--
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #35
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/sbin/mount.nfs
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #36
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SUID
+Severity: LOW
+Path: /usr/sbin/mount.cifs
+Permissions: -rwsr-xr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #37
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SGID
+Severity: LOW
+Path: /usr/bin/chage
+Permissions: -rwxr-sr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #38
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SGID
+Severity: LOW
+Path: /usr/bin/dotlockfile
+Permissions: -rwxr-sr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #39
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SGID
+Severity: LOW
+Path: /usr/bin/ssh-agent
+Permissions: -rwxr-sr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #40
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SGID
+Severity: LOW
+Path: /usr/bin/plocate
+Permissions: -rwxr-sr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #41
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SGID
+Severity: LOW
+Path: /usr/bin/expiry
+Permissions: -rwxr-sr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #42
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SGID
+Severity: LOW
+Path: /usr/bin/crontab
+Permissions: -rwxr-sr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #43
+----------------------------------------------------------------------
+Scanner: SUID/SGID Scanner
+Type: SGID
+Severity: LOW
+Path: /usr/sbin/unix_chkpwd
+Permissions: -rwxr-sr-x
+Finding: No obvious high-risk condition detected
+Recommendation: No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+
+FINDING #44
+----------------------------------------------------------------------
+Scanner: Capabilities Scanner
+Type: Linux File Capability
+Severity: LOW
+Path: /usr/bin/mtr-packet
+Permissions: -rwxr-xr-x
+Capabilities: cap_net_raw=ep
+Finding: File has Linux capabilities assigned.
+Recommendation: Verify that the capabilities are required and follow the principle of least privilege.
+
+FINDING #45
+----------------------------------------------------------------------
+Scanner: Capabilities Scanner
+Type: Linux File Capability
+Severity: LOW
+Path: /usr/bin/dumpcap
+Permissions: -rwxr-xr--
+Capabilities: cap_net_admin,cap_net_raw=eip
+Finding: File has Linux capabilities assigned.
+Recommendation: Verify that the capabilities are required and follow the principle of least privilege.
+
+FINDING #46
+----------------------------------------------------------------------
+Scanner: Capabilities Scanner
+Type: Linux File Capability
+Severity: LOW
+Path: /usr/bin/fping
+Permissions: -rwxr-xr-x
+Capabilities: cap_net_raw=ep
+Finding: File has Linux capabilities assigned.
+Recommendation: Verify that the capabilities are required and follow the principle of least privilege.
+
+FINDING #47
+----------------------------------------------------------------------
+Scanner: Capabilities Scanner
+Type: Linux File Capability
+Severity: LOW
+Path: /usr/lib/nmap/nmap
+Permissions: -rwxr-xr-x
+Capabilities: cap_net_bind_service,cap_net_admin,cap_net_raw=eip
+Finding: File has Linux capabilities assigned.
+Recommendation: Verify that the capabilities are required and follow the principle of least privilege.
+
+FINDING #48
+----------------------------------------------------------------------
+Scanner: Capabilities Scanner
+Type: Linux File Capability
+Severity: LOW
+Path: /usr/lib/x86_64-linux-gnu/gstreamer1.0/gstreamer-1.0/gst-ptp-helper
+Permissions: -rwxr-xr-x
+Capabilities: cap_net_bind_service,cap_net_admin,cap_sys_nice=ep
+Finding: File has Linux capabilities assigned.
+Recommendation: Verify that the capabilities are required and follow the principle of least privilege.
+
+FINDING #49
+----------------------------------------------------------------------
+Scanner: Kernel Scanner
+Type: Kernel Age Assessment
+Severity: LOW
+Path: 7.1.5+kali-amd64
+Finding: Kernel release does not appear unusually old based on the scanner's conservative version check.
+Recommendation: Continue applying security updates and verify the kernel against official distribution advisories.
+
+FINDING #50
+----------------------------------------------------------------------
+Scanner: Kernel Scanner
+Type: Kernel CVE Assessment
+Severity: LOW
+Path: 7.1.5+kali-amd64
+Finding: No matching CVE was identified in the local reference database for this kernel version.
+Recommendation: Continue applying security updates and verify the kernel against official Kali/Debian security advisories and trusted CVE databases.
+
+======================================================================
+MITIGATION SUMMARY
+======================================================================
+1. Remove unnecessary world-write permission from the privileged file and review its SUID/SGID configuration.
+2. Apply the principle of least privilege and restrict sudo access to only required commands.
+3. Review group ownership and restrict unnecessary write permissions.
+4. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+5. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+6. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+7. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+8. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+9. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+10. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+11. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+12. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+13. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+14. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+15. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+16. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+17. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+18. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+19. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+20. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+21. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+22. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+23. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+24. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+25. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+26. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+27. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+28. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+29. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+30. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+31. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+32. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+33. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+34. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+35. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+36. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+37. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+38. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+39. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+40. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+41. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+42. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+43. No immediate action required; continue monitoring privileged binaries and review whether the SUID/SGID permission is required.
+44. Verify that the capabilities are required and follow the principle of least privilege.
+45. Verify that the capabilities are required and follow the principle of least privilege.
+46. Verify that the capabilities are required and follow the principle of least privilege.
+47. Verify that the capabilities are required and follow the principle of least privilege.
+48. Verify that the capabilities are required and follow the principle of least privilege.
+49. Continue applying security updates and verify the kernel against official distribution advisories.
+50. Continue applying security updates and verify the kernel against official Kali/Debian security advisories and trusted CVE databases.
+
+======================================================================
+SECURITY INTERPRETATION
+======================================================================
+HIGH-risk findings were detected. These findings should be prioritized for security review and remediation.
+
+======================================================================
+LIMITATIONS
+======================================================================
+1. Findings represent potentially risky configurations and do not automatically prove exploitability.
+2. Individual findings require manual validation by an authorized security professional.
+3. Kernel vulnerability information should be verified against official distribution security advisories and trusted CVE databases.
+4. The toolkit performs detection and analysis only and does not execute privilege-escalation exploits.
+
+======================================================================
+DISCLAIMER
+======================================================================
+This report is intended for authorized security testing, education, auditing and laboratory environments only.
+Do not use the toolkit against systems without proper authorization.
+======================================================================
