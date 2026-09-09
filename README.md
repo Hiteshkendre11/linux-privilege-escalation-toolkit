@@ -1,7 +1,10 @@
 # Linux Privilege Escalation Automation Toolkit
 
-A Python-based Linux security auditing tool designed to identify
+A Python-based Linux security auditing toolkit designed to identify
 potential privilege-escalation conditions involving SUID and SGID files.
+
+This project was developed as part of a cybersecurity internship and
+tested in a controlled Linux laboratory environment.
 
 ## Features
 
@@ -16,6 +19,7 @@ potential privilege-escalation conditions involving SUID and SGID files.
 - Security recommendations
 - Red highlighting for HIGH-risk findings
 - Scan summary
+- System information collection
 - Controlled laboratory testing
 
 ## Requirements
@@ -34,7 +38,7 @@ Clone the repository:
 
 Enter the project directory:
 
-    cd project-1
+    cd linux-privilege-escalation-toolkit
 
 ## Usage
 
@@ -60,33 +64,51 @@ Run the SUID/SGID scanner:
 
 ## Testing
 
-A controlled laboratory file can be used to verify the scanner's
-ability to detect risky SUID/SGID permission configurations.
+The toolkit was tested in a controlled and authorized Linux laboratory
+environment.
 
-Testing should be performed only in an isolated and authorized
-laboratory environment.
+A controlled laboratory file can be used to verify the scanner's ability
+to detect risky SUID/SGID permission configurations.
+
+Testing should only be performed in isolated and authorized environments.
 
 ## Project Structure
 
-    project-1/
+    linux-privilege-escalation-toolkit/
     ├── suid_scanner.py
     ├── system_info.py
     ├── requirements.txt
     ├── .gitignore
     ├── README.md
+    ├── docs/
+    │   └── Project Report
+    ├── screenshots/
+    │   └── Testing Evidence
     └── lab/
+        └── Laboratory Testing Files
 
 ## Limitations
 
-A HIGH finding indicates a potentially dangerous configuration
-based on the detection rules implemented by the tool.
+A HIGH finding indicates a potentially dangerous configuration based on
+the detection rules implemented by the tool.
 
 It does not automatically prove that the file is exploitable.
 Individual findings require further manual security assessment.
 
+## Project Documentation
+
+The complete project report contains the project methodology,
+implementation details, testing process, results, screenshots,
+limitations, and conclusions.
+
+## Internship
+
+**Program:** Cybersecurity Internship  
+**Project:** Linux Privilege Escalation Automation Toolkit
+
 ## Disclaimer
 
-This project is intended for authorized security testing,
-education, and laboratory environments only.
+This project is intended for authorized security testing, education,
+and laboratory environments only.
 
 Do not use this tool against systems without proper authorization.
