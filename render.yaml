@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: linux-privilege-escalation-toolkit
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: false

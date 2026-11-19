@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>Linux Privilege Escalation Toolkit</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--line:#26364f;--muted:#9aabc2;--text:#eef4ff;--blue:#63a7ff;--green:#43d19e;--red:#ff6c7c;--yellow:#f4c66a}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#14294a 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,Segoe UI,sans-serif}
+    .wrap{max-width:1120px;margin:auto;padding:38px 22px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border:1px solid #36537a;border-radius:13px;display:grid;place-items:center;background:#142844;color:var(--blue);font-size:22px}.eyebrow{color:var(--blue);font-size:11px;letter-spacing:.16em;font-weight:800;text-transform:uppercase}h1{font-size:clamp(27px,4vw,39px);line-height:1.15;margin:8px 0 10px;letter-spacing:-.04em}.sub{color:var(--muted);max-width:730px;margin:0 0 25px}.pill{border:1px solid #245b4c;color:#7ce6bd;background:#10352e;padding:7px 11px;border-radius:99px;font-size:12px;font-weight:700}
+    .notice{border:1px solid #6b5527;background:#332a18;color:#f5d99b;padding:13px 15px;border-radius:12px;margin:20px 0 24px;font-size:13px}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.panel{background:linear-gradient(150deg,#152238,#101a2b);border:1px solid var(--line);border-radius:17px;padding:21px;box-shadow:0 12px 34px #0002}.panel h2{font-size:17px;margin:0 0 5px}.hint{font-size:13px;color:var(--muted);margin:0 0 18px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}.check{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #2a3c56;background:#0d1727;border-radius:11px;min-height:54px}.check input{accent-color:#68aaff;width:17px;height:17px}.check span{font-size:13px;font-weight:650}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.btn{border:0;border-radius:10px;padding:12px 17px;font-weight:800;cursor:pointer;background:var(--blue);color:#071426}.btn.secondary{background:#243650;color:#dceaff;border:1px solid #3a506e}.btn:disabled{opacity:.55;cursor:wait}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:13px}.stat{background:#0d1727;border:1px solid #293b54;padding:13px;border-radius:11px}.stat b{font-size:24px;display:block}.stat small{color:var(--muted);font-size:11px}.status{color:var(--muted);font-size:13px;margin-top:12px;min-height:20px}.result{margin-top:18px;display:none}.result.show{display:block}.summary{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.severity{font-size:12px;font-weight:800;border-radius:8px;padding:6px 9px;background:#27354a}.severity.HIGH{background:#4a202b;color:#ff9eaa}.severity.MEDIUM{background:#49391d;color:#f6d18b}.severity.LOW{background:#173d34;color:#83e7bf}.finding{border:1px solid #2a3c56;background:#0d1727;border-radius:12px;padding:14px;margin-top:10px}.finding h3{font-size:14px;margin:0 0 5px}.finding p{font-size:13px;color:#c0cde0;margin:5px 0}.muted{color:var(--muted)!important}.download{display:inline-block;margin-top:14px;color:#8fc2ff;font-weight:750;text-decoration:none}.footer{color:#71839d;font-size:12px;margin-top:22px;text-align:center}
+    @media(max-width:800px){.grid{grid-template-columns:1fr}.checks{grid-template-columns:1fr 1fr}}@media(max-width:480px){.checks{grid-template-columns:1fr}.wrap{padding:25px 14px}}
+  </style>
+</head>
+<body><main class="wrap">
+  <header class="top"><div class="brand"><div class="logo">⌘</div><div><div class="eyebrow">Defensive security toolkit</div><div style="font-weight:800">LINUX AUDIT CONSOLE</div></div></div><div class="pill">● Detection-only mode</div></header>
+  <h1>Linux Privilege Escalation<br>Automation Toolkit</h1>
+  <p class="sub">Run targeted Linux security checks, review prioritized findings, and generate a consolidated audit report.</p>
+  <div class="notice"><b>Important scope:</b> This hosted dashboard scans only the Linux container running this website. It cannot scan your laptop, Kali VM, or another remote machine. Use the original CLI inside Kali to audit your own system.</div>
+  <div class="grid">
+    <section class="panel"><h2>Choose security scans</h2><p class="hint">Select one or more checks, or run the complete seven-module audit.</p>
+      <div class="checks">
+        <label class="check"><input type="checkbox" value="suid" checked><span>SUID / SGID</span></label>
+        <label class="check"><input type="checkbox" value="permissions" checked><span>File permissions</span></label>
+        <label class="check"><input type="checkbox" value="sudo" checked><span>Sudo configuration</span></label>
+        <label class="check"><input type="checkbox" value="cron" checked><span>Cron jobs</span></label>
+        <label class="check"><input type="checkbox" value="services" checked><span>Systemd services</span></label>
+        <label class="check"><input type="checkbox" value="capabilities" checked><span>Linux capabilities</span></label>
+        <label class="check"><input type="checkbox" value="kernel" checked><span>Kernel assessment</span></label>
+      </div>
+      <div class="actions"><button class="btn" id="full">Run Full Security Audit</button><button class="btn secondary" id="selected">Run Selected Scans</button></div>
+      <div class="status" id="status" aria-live="polite">Ready. Select the scans you want to execute.</div>
+    </section>
+    <section class="panel"><h2>Audit overview</h2><p class="hint">Results are generated from the current hosted container.</p>
+      <div class="stats"><div class="stat"><b id="total">—</b><small>Total findings</small></div><div class="stat"><b id="high" style="color:var(--red)">—</b><small>High risk</small></div><div class="stat"><b id="score">—</b><small>Risk score</small></div></div>
+      <div style="margin-top:17px"><div class="muted" style="font-size:12px">Overall status</div><div id="overall" style="font-size:18px;font-weight:800;margin-top:3px">Not scanned</div></div>
+      <div style="margin-top:17px"><div class="muted" style="font-size:12px">System information</div><div id="system" style="font-size:12px;color:#c3d0e2;margin-top:5px">Run a scan to collect system details.</div></div>
+    </section>
+  </div>
+  <section class="panel result" id="results"><div class="summary"><div><h2 style="margin:0">Detailed findings</h2><p class="hint" id="meta" style="margin:3px 0 0"></p></div><a class="download" id="report" href="/api/report">↓ Download security report</a></div><div id="findingList"></div></section>
+  <div class="footer">Authorized security auditing and educational use only · No exploitation is performed</div>
+</main>
+<script>
+const boxes=[...document.querySelectorAll('.check input')],statusEl=document.getElementById('status');
+async function run(ids){
+  const buttons=[document.getElementById('full'),document.getElementById('selected')];buttons.forEach(b=>b.disabled=true);statusEl.textContent='Running '+ids.length+' scanner(s). This may take a little time…';
+  try{const response=await fetch('/api/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({scans:ids})});const data=await response.json();if(!response.ok||!data.success)throw new Error(data.error||'Scan failed');
+    document.getElementById('total').textContent=data.total_findings;document.getElementById('high').textContent=data.counts.HIGH??0;document.getElementById('score').textContent=data.risk_score;document.getElementById('overall').textContent=data.overall_status;document.getElementById('system').textContent=data.system_info.Distribution+' · Kernel '+data.system_info.Kernel+' · UID '+data.system_info['Execution UID'];document.getElementById('meta').textContent=data.scan_names.join(' · ')+' · '+data.duration_seconds+' seconds';
+    const list=document.getElementById('findingList');list.innerHTML='';if(!data.findings.length){list.innerHTML='<div class="finding"><h3>No findings returned</h3><p class="muted">No findings were detected by the selected checks in this container. This is not a guarantee that the host or visitor device is secure.</p></div>';}else{for(const f of data.findings){const el=document.createElement('article');el.className='finding';const h=document.createElement('h3');h.textContent=f.type||'Finding';const badge=document.createElement('span');badge.className='severity '+(f.severity||'LOW');badge.textContent=f.severity||'LOW';const top=document.createElement('div');top.style.cssText='display:flex;justify-content:space-between;gap:10px;align-items:center';top.append(h,badge);el.append(top);for(const [label,value] of [['Scanner',f.scanner],['Path',f.path],['Finding',f.finding],['Recommendation',f.recommendation]]){if(value){const p=document.createElement('p');p.textContent=label+': '+value;el.append(p);}}list.append(el);}}
+    document.getElementById('results').classList.add('show');statusEl.textContent='Completed successfully.'+(data.errors.length?' Some modules reported errors: '+data.errors.map(x=>x.scanner).join(', '):'');
+  }catch(e){statusEl.textContent='Error: '+e.message;}finally{buttons.forEach(b=>b.disabled=false);}
+}
+document.getElementById('full').addEventListener('click',()=>run(boxes.map(x=>x.value)));
+document.getElementById('selected').addEventListener('click',()=>{const ids=boxes.filter(x=>x.checked).map(x=>x.value);if(!ids.length){statusEl.textContent='Select at least one scanner.';return;}run(ids);});
+</script></body></html>
